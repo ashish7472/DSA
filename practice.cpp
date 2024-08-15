@@ -1,30 +1,13 @@
-#include <iostream>
+#include<iostream>
+#include<utility>
 using namespace std;
 
-int main() {
-	// your code goes here
-	    int N,A[1000];
-	    cin>>N;
-	    for(int i=0;i<N;i++)
-	        cin>>A[i];
-	   int max1 = A[0],max2 = A[0];
-	    for(int i=0;i<N;i++){
-	        for(int j=0;j<N;j++){
-	            if(max1 != A[j] && A[j] > max1){
-	                max1 = A[j];
-	            }
-	            
-	        }
-	    }
-	    for(int i=0;i<N;i++){
-	        for(int j=0;j<N;j++){
-	            if(max2 != A[j] && A[j] > max2 && A[j]<max1){
-	                max2 = A[j];
-	            }
-	            
-	        }
-	    }
-	    cout<<max1+max2<<endl;
+int main()
+{
+	//github sikh rha hu is liye
+	pair<int,int>foo;
+	// foo = make_pair(2,3);
+	cout<<foo.first<<endl;
+	cout<<foo.second<<endl;
 	return 0;
 }
-
