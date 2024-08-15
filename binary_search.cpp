@@ -21,6 +21,8 @@ int binarySearch(int arr[],int size,int key){
 }
 
 main(){
+    cout<<"Name: ASHISH ROLAN";
+    cout<<"Roll No: 22103033";
     int size,arr[100],key;
     cout<<"enter size of array: ";
     cin>>size;
