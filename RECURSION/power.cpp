@@ -6,10 +6,8 @@ int power(int n,int m){
         return 1;
     else if(m==1)
         return n;
-
-    else{
-qreroo 
-    }
+    
+    return n*power(n,m-1);
 }
 
 int main()
@@ -17,6 +15,6 @@ int main()
     int n,m;
     cout<<"Enter Numbers: ";
     cin>>n>>m;
-    power(n,m);
+    cout<<power(n,m)<<endl;
     return 0;
 }
