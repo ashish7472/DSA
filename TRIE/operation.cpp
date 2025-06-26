@@ -76,6 +76,28 @@ class Trie{
             return searchUtil(root,word);
         }
 
+        // DELETION
+        // void del(TrieNode* root, string word){
+        //     if(word.length() == 0){
+        //         root->isTerminal = false;
+        //         return;
+        //     }
+        
+        //     int index = word[0] - 'A';
+        //     TrieNode* child = root->children[index];
+        
+        //     if(child == NULL){
+        //         // Word doesn't exist
+        //         return;
+        //     }
+        
+        //     del(child, word.substr(1));
+        // }
+        // void deleteWord(string word){
+        //     del(root, word);
+        // }
+        
+
 };
 
 int main()

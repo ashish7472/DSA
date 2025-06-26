@@ -14,46 +14,42 @@ class Node{
         }
 };
 
-Node* delete(Node* root, int val){
-    if(root==NULL)
-        return root;
-    else if(root->data==val){
-        //0 child
-        if(root->left==NULL && root->right==NULL){
+Node* deleteN(Node* root, int key){
+    if(root == NULL) return NULL;
+
+    if(key < root->data){
+        root->left = deleteN(root->left, key);  // ✅ UPDATE HERE
+    }
+    else if(key > root->data){
+        root->right = deleteN(root->right, key);  // ✅ AND HERE
+    }
+    else {
+        // 0 child
+        if(!root->left && !root->right){
             delete root;
             return NULL;
         }
-        //1 child
-        //left child
-        if(root->left!=NULL && root->right==NULL){
+
+        // 1 child (left)
+        if(!root->right && root->left){
             Node* temp = root->left;
             delete root;
             return temp;
         }
 
-        //right child
-        if(root->right!=NULL && root->left==NULL){
+        // 1 child (right)
+        if(!root->left && root->right){
             Node* temp = root->right;
             delete root;
             return temp;
         }
 
-        //2 child
-        else{
-            int min = minVal(root->right)->data; //right subtree me se min nikal lo
-            root->data = min;
-            root->right = delete(root->right,min);
-            return root;
-        }
+        // 2 children
+        int d = maxi(root->left)->data;
+        root->data = d;
+        root->left = deleteN(root->left, d);  // ✅ recursive deletion
     }
-    else if(root->data>val){
-        root->left = delete(root->left,val);
-        return root;
-    }
-    else{
-        root->right = delete(root->right,val);
-        return root;
-    }
+    return root;
 }
 
 int main()

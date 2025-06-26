@@ -1,5 +1,8 @@
 // Online C++ compiler to run C++ program online
-#include<bits/stdc++.h>
+#include<iostream>
+#include<string>
+#include<vector>
+#include<algorithm>
 using namespace std;
 
 int main() {

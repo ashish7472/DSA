@@ -8,15 +8,15 @@ private:
 		pathVis[node] = 1;
 
 		// traverse for adjacent nodes
-		for (auto it : adj[node]) {
+		for (auto neigh : adj[node]) {
 			// when the node is not visited
-			if (!vis[it]) {
-				if (dfsCheck(it, adj, vis, pathVis) == true)
+			if (!vis[neigh]) {
+				if (dfsCheck(neigh, adj, vis, pathVis) == true)
 					return true;
 			}
 			// if the node has been previously visited
-			// but it has to be visited on the same path
-			else if (pathVis[it]) {
+			// but neigh has to be visited on the same path
+			else if (pathVis[neigh]) { //else if ka matlab  h ki !vis to if me h then vis==1 aa gya h baki pathVis[neigh] extra likh diya
 				return true;
 			}
 		}

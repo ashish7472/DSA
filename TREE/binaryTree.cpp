@@ -37,6 +37,7 @@ node* buildTree(node* root){
 void bfs(node* root){
     queue<node*>q;
     q.push(root);
+    
 
     while(!q.empty()){
         int n = q.size();
