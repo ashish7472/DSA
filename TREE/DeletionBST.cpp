@@ -14,10 +14,15 @@ class Node{
         }
 };
 
+Node* maxi(Node* root){
+    if(!root || !root->right) return root;
+    return maxi(root->right);
+}
+
 Node* deleteN(Node* root, int key){
     if(root == NULL) return NULL;
 
-    if(key < root->data){
+    if(key < root->data){ 
         root->left = deleteN(root->left, key);  // ✅ UPDATE HERE
     }
     else if(key > root->data){
