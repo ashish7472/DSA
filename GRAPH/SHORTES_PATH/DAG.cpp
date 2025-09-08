@@ -8,7 +8,7 @@ using namespace std;
 
 class Graph{
     public:
-        unordered_map<int,list<pair<int,int>>>adj;
+        unordered_map<int,list<pair<int,int>>>adj;   //<src, {dest,wt}>
 
         void addEdge(int u,int v,int wt){
             adj[u].push_back({v,wt});
@@ -45,7 +45,7 @@ class Graph{
 
                 if(dis[node] != INT16_MAX){
                     for(auto neigh : adj[node]){
-                        dis[neigh.first] = min(dis[node]+neigh.second, dis[neigh.first]);
+                        dis[neigh.first] = min(dis[neigh.first], dis[node]+neigh.second);
                     }
                 }
             }

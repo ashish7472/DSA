@@ -11,7 +11,7 @@ int main()
         int u,v;
         cin>>u>>v;
         //for undirected graph
-        graph[u][v] = 1;
+        graph[u][v] = 1; 
         graph[v][u] = 1;
     }
 

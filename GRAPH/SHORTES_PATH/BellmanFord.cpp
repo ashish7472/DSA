@@ -13,7 +13,7 @@ void bellmanFord(int V, int E, vector<Edge>& edges, int src) {
 
     // Step 1: Relax all edges V-1 times
     for (int i = 0; i < V - 1; ++i) {
-        for (auto edge : edges) {
+        for (auto edge : edges) { //traverse on edges
             if (dist[edge.u] != 1e9 && dist[edge.u] + edge.weight < dist[edge.v]) {
                 dist[edge.v] = dist[edge.u] + edge.weight;
             }

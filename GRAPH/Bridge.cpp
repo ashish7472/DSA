@@ -1,10 +1,13 @@
 #include<unordered_map>
 #include <list>
 #include<vector>
+
 void dfs(int node, int parent, vector<int> &discT, vector<int> &low, vector<bool> &visited, vector<vector<int>> &result, unordered_map<int, list <int> > &adj, int &timer)
 {
     visited[node] = true;
     discT[node] = low[node] = timer++;
+    //here this timer will only get incremented in recursice calls so it will only get increament if the node
+    //is not visited coz in this case only we are calling our dfs.
     
     for(auto neighbour : adj[node])
     {
@@ -25,7 +28,7 @@ void dfs(int node, int parent, vector<int> &discT, vector<int> &low, vector<bool
                 result.push_back(ans);
             }
         }
-        else  //node is visited and not parent too
+        else  //neighbour is visited
         {
             //backedge
              low[node] = min(low[node], discT[neighbour]);
@@ -34,6 +37,8 @@ void dfs(int node, int parent, vector<int> &discT, vector<int> &low, vector<bool
     
 }
 vector<vector<int>> findBridges(vector<vector<int>> &edges, int v, int e) {
+
+    //making adj list
     unordered_map<int, list <int> > adj;
     for(int i = 0; i<edges.size(); i++)
         {
@@ -43,6 +48,7 @@ vector<vector<int>> findBridges(vector<vector<int>> &edges, int v, int e) {
           adj[u].push_back(v);
           adj[v].push_back(u);
         }
+
     int timer = 0;
     vector<int> discT(v);
     vector<int> low(v);

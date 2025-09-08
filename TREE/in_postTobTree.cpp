@@ -19,7 +19,7 @@ private:
         TreeNode* root = new TreeNode(element);
         int pos = m[element];
 
-        root->right = solve(in,post,pEnd,pos+1,inE,n,m);
+        root->right = solve(in,post,pEnd,pos+1,inE,n,m); //in_post me right ki call pahle hogi then left ki
         root->left = solve(in,post,pEnd,inS,pos-1,n,m);
         
         return root;

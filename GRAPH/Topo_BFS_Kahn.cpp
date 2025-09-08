@@ -4,6 +4,8 @@
 //0 walo ko queue me push karo
 //fhir normal bfs
 
+//doesn't require visited array
+
 #include<iostream>
 #include<vector>
 #include<unordered_map>
@@ -19,7 +21,7 @@ class Graph{
             adj[u].push_back(v);
         }
 
-        void kahn(vector<bool>& vis,int n,int src,vector<int>& topo){
+        void kahn(int n,int src,vector<int>& topo){
 
             //Indegree store
             vector<int>indegree(n);   
@@ -66,9 +68,8 @@ int main()
         g.addEdge(u,v);
     }
 
-    vector<bool>vis(n,0);
     vector<int>topo;
-    g.kahn(vis,n,0,topo);
+    g.kahn(n,0,topo);
 
     for(auto it : topo){
         cout<<it<<", ";

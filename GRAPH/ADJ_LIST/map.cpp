@@ -14,9 +14,9 @@ int main() {
 
     // Print adjacency list for each vertex
     for (const auto& pair : adjList) {
-        cout << "Vertex " << pair.first << ":";
+        cout << "Vertex " << pair.first << ": ->";
         for (int neighbor : pair.second) {
-            cout << " -> " << neighbor;
+            cout <<neighbor<<", ";
         }
         cout << endl;
     }

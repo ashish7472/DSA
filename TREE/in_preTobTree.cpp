@@ -17,7 +17,7 @@ private:
         
         int element = preorder[preInd++];
         TreeNode* root = new TreeNode(element);
-        int pos = findPosition(inorder,element);
+        int pos = findPosition(inorder,element); //for optimisation apn ye map bhi bana sakte h of inorder
         root->left = solve(preorder,inorder,preInd,startInInd,pos-1,n);
         root->right = solve(preorder,inorder,preInd,pos+1,endInInd,n);
 
