@@ -2,7 +2,6 @@
 class Solution {
 public:
     typedef pair<int, int> p;
-    
     vector<int> topKFrequent(vector<int>& nums, int k) {
         
         //min-heap
@@ -16,10 +15,10 @@ public:
         
         //Push in min-heap and maintain size k
         for(auto it:mp) {
-            pq.push({it.second, it.first});
+            pq.push({it.second, it.first}); // {freq, ele} taki hmme custom comparator na likhna pade
             
-            if(pq.size() > k)
-                pq.pop();
+            if(pq.size() > k) 
+                pq.pop(); //min freq waale ko pop kr dia
         }
         
         
@@ -39,8 +38,7 @@ class Solution {
 public:
     vector<int> topKFrequent(vector<int>& nums, int k) {
         int n = nums.size();
-        
-        unordered_map<int, int> mp;
+        unordered_map<int, int> mp; //for storing freq, used to fill bucket arr
         
         for(int &num : nums) {
             mp[num]++;

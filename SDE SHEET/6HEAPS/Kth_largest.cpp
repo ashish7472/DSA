@@ -6,8 +6,8 @@ public:
     int partition_algo(vector<int>& nums, int L, int R) {
         
         int P = nums[L];
-        int i = L+1; //0
-        int j = R; //0
+        int i = L+1; //L se start krne se agar array me 1 hi element hua then it will suck
+        int j = R;
         
         while(i <= j) {
             
@@ -26,7 +26,7 @@ public:
             }
             
         }
-        swap(nums[L], nums[j]);
+        swap(P, nums[j]); //last me ye ek bar krna hi h: swap pivot ele and nums[j]
         return j; //P is at jth index
     }
     
@@ -44,7 +44,7 @@ public:
             
              pivot_idx = partition_algo(nums, L, R);
             
-            if(pivot_idx == k-1) {
+            if(pivot_idx == k-1) { //0 based h to kth largest apna k-1 position pe hoga
                 break;
             } else if(pivot_idx > k-1) { //ex: 2nd larget reqd tha, but 4th largest mil gya
                 R = pivot_idx - 1;
