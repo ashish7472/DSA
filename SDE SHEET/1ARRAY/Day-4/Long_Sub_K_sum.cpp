@@ -4,7 +4,7 @@
 int maxLen(int A[], int n) // this works for any array having +, -, 0 elements
 {
     // Your code here
-    unordered_map<int, int> mpp;
+    unordered_map<int, int> mpp;  //sum, index (prefsum)
     int maxi = 0;
     int sum = 0;
     for (int i = 0; i < n; i++)
@@ -16,11 +16,11 @@ int maxLen(int A[], int n) // this works for any array having +, -, 0 elements
         }
         else
         {
-            if (mpp.find(sum) != mpp.end())
+            if (mpp.find(sum) != mpp.end())  //mpp.find(sum-k) if k wasn't 0. We represent, rem = sum-k
             {
-                maxi = max(maxi, i - mpp[sum]);
+                maxi = max(maxi, i - mpp[sum]); //mpp[sum-k] if k wasn't 0
             }
-            else
+            else //mpp[sum] = i in else ensure it will work if 0, -ves are present in the array
             {
                 mpp[sum] = i;
             }

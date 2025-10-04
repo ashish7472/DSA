@@ -1,47 +1,44 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 
 struct Item {
-   int value;
-   int weight;
+    int value, weight;
+    double ratio() const { return (double)value / weight; }
 };
+
 class Solution {
-   public:
-      bool static comp(Item a, Item b) {
-         double r1 = (double) a.value / (double) a.weight;
-         double r2 = (double) b.value / (double) b.weight;
-         return r1 > r2;
-      }
-   // function to return fractionalweights
-   double fractionalKnapsack(int W, Item arr[], int n) {
+public:
+    double fractionalKnapsack(int W, vector<Item>& items) {
+        sort(items.begin(), items.end(), [](const Item& a, const Item& b) {
+            return a.ratio() > b.ratio();
+        });
 
-      sort(arr, arr + n, comp);
+        double totalValue = 0.0;  // Keeps track of the total value of items selected
 
-      int curWeight = 0;
-      double finalvalue = 0.0;
+        for (const auto& item : items) {
+            if (item.weight <= W) {
+                // If the item can fit completely into the knapsack
+                W -= item.weight;  // Subtract the item's weight from the remaining capacity
+                totalValue += item.value;  // Add the item's value to the total value
+            } else {
+                // If the item can't fit completely, take the fraction of it
+                double fraction = (double)W / item.weight;  // Fraction of the item we can take
+                totalValue += item.value * fraction;  // Add the fractional value to the total value
+                break;  // No more space in the knapsack, so we stop
+            }
+        }
 
-      for (int i = 0; i < n; i++) {
-
-         if (curWeight + arr[i].weight <= W) {
-            curWeight += arr[i].weight;
-            finalvalue += arr[i].value;
-         } else {
-            int remain = W - curWeight;
-            finalvalue += (arr[i].value / (double) arr[i].weight) * (double) remain;
-            break;
-         }
-      }
-
-      return finalvalue;
-
-   }
+        return totalValue;  // Return the total value of items taken
+    }
 };
+
 int main() {
-   int n = 3, weight = 50;
-   Item arr[n] = { {100,20},{60,10},{120,30} };
-   Solution obj;
-   double ans = obj.fractionalKnapsack(weight, arr, n);
-   cout << "The maximum value is " << setprecision(2) << fixed << ans;
-   return 0;
+    int n = 3, W = 50;
+    vector<Item> items = { {100, 20}, {60, 10}, {120, 30} };
+    
+    Solution sol;
+    double maxValue = sol.fractionalKnapsack(W, items);
+    cout << "The maximum value is " << fixed << setprecision(2) << maxValue << endl;
+
+    return 0;
 }

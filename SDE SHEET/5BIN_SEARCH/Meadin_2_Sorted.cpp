@@ -41,11 +41,11 @@ double median(vector<int>& a, vector<int>& b) {
     }
 
     //Find the median:
-    if (n % 2 == 1) {
+    if (n % 2 == 1) {  //if n is odd length
         return (double)ind2el;
     }
 
-    return (double)((double)(ind1el + ind2el)) / 2.0;
+    return (double)((double)(ind1el + ind2el)) / 2.0; //if n is even length
 }
 
 

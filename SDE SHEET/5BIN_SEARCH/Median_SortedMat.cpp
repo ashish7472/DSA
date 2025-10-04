@@ -12,25 +12,25 @@ int findMedian(vector<vector<int>>& matrix) {
     int c = matrix[0].size();
 
     // Find the minimum and maximum elements in the matrix
-    int low = matrix[0][0];
-    int high = matrix[0][c-1];
-    for(int i=1; i<r; i++) {
+    int low = matrix[0][0];  //min element in first column
+    int high = matrix[0][c-1];  //max element in last column 
+    for(int i=1; i<r; i++) { 
         low = min(low, matrix[i][0]);
         high = max(high, matrix[i][c-1]);
     }
 
-    int desired = (r * c + 1) / 2; //desired median of matrix
+    int desired = (r * c) / 2; //desired position of median in matrix 0 based
 
     while (low < high) {
-        int mid = low + (high - low) / 2;
+        int mid = (high + low) / 2;
 
         // Count how many numbers are <= mid
         int count = 0;
-        for (int i = 0; i < r; i++) {
+        for (int i = 0; i < r; i++) {  //in each row count 
             count += countSmallerEqual(matrix[i], mid);
         }
 
-        if (count < desired) {
+        if (count <= desired) {
             low = mid + 1;
         } else {
             high = mid;

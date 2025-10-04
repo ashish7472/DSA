@@ -20,19 +20,19 @@ void heapify(int arr[], int n, int i){
 void heapSort(int arr[],int n){
     int size = n;
     while(size>1){
-        //step1:- Swap
+        //step1:- Swap last ele with 1st ele
         swap(arr[size],arr[1]);
         size--;
 
-        //step2
-        heapify(arr,size,1);
+        //step2 :- ab use node ko correct pos pe leke jao
+        heapify(arr,size,1); //1 indicates root node
     }
 }
 int main()
 {
     int arr[6] = {-1,54,53,55,52,50};
     int n = 5;
-    for(int i=n/2;i>0;i--){
+    for(int i=n/2;i>0;i--){ //Max-heap creation from given arr
         heapify(arr,n,i);
     }
 

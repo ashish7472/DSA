@@ -3,6 +3,7 @@ using namespace std;
 
 int search(vector<int>& arr, int n, int k) {
     int low = 0, high = n - 1;
+
     while (low <= high) {
         int mid = (low + high) / 2;
 
@@ -12,23 +13,23 @@ int search(vector<int>& arr, int n, int k) {
         //if left part is sorted:
         if (arr[low] <= arr[mid]) {
             //check if target lies in sorted left half or not
-            if (arr[low] <= k && k <= arr[mid]) {
-                //element exists:
+            if (arr[low] <= k && k <= arr[mid]) { //target lies in left part
+                //eliminate right part
                 high = mid - 1;
             }
             else {
-                //element does not exist:
+                //element does not exist in left part
                 low = mid + 1;
             }
         }
         else { //if right part is sorted:
             //check if target lies in sorted right half or not
-            if (arr[mid] <= k && k <= arr[high]) {
-                //element exists:
+            if (arr[mid] <= k && k <= arr[high]) { //target lies in right half
+                //eliminate left half
                 low = mid + 1;
             }
             else {
-                //element does not exist:
+                //element does not exist in right half
                 high = mid - 1;
             }
         }

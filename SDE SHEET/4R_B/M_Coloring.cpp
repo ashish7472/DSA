@@ -14,12 +14,12 @@ bool solve(int node, int color[], int m, int N, bool graph[101][101]) {
   if (node == N) {
     return true;
   }
-
+;
   for (int i = 1; i <= m; i++) {
     if (isSafe(node, color, graph, N, i)) {
       color[node] = i;
       if (solve(node + 1, color, m, N, graph)) return true;
-      color[node] = 0;
+      color[node] = 0;  //backtrack step
     }
 
   }

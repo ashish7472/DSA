@@ -28,7 +28,7 @@ class Solution {
       answer.push_back(meet[0].pos);
 
       for (int i = 1; i < n; i++) {
-         if (meet[i].start > finish_time) {
+         if (meet[i].start >= finish_time) {
             finish_time = meet[i].end;
             answer.push_back(meet[i].pos);
          }

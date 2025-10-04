@@ -8,17 +8,18 @@ class heap{
         int size;
 
         heap(){
-            arr[0] = -1;
+            arr[0] = -1; //taking 1 based indexing so putting arr[0] as -1
             size = 0;
         }
 
         void insert(int val){
             size += 1;
             int ind = size;
-            arr[ind] = val;
+            arr[ind] = val; //step1. pahle node ko end me daaldo
 
+            //step2. fhir us node ko correct pos pe leke jana h.
             while(ind>1){
-                int parent = ind/2;
+                int parent = ind/2; //if ele is at i index then its parent will be on at i/2  
 
                 if(arr[parent]<arr[ind]){
                     swap(arr[parent],arr[ind]);
@@ -35,18 +36,19 @@ class heap{
             cout<<endl;
         }
 
-        //DELETION IN HEAP
+        //DELETION IN HEAP : matlab root node delete krne ki baat kr rhe h
         void deleteFromHeap(){
             if(size==0){
                 cout<<"Nothing to delete: "<<endl;
                 return;
             }
-            arr[1] = arr[size]; //add last element to first
-            size--;  //remove last element
-
+            arr[1] = arr[size]; //step1. add last element to first
+            size--;  //step2. remove last element
+            
+            //step3. now shift the root node to its correct position
             int i = 1;
             while(i<size){
-                int leftInd = 2*i;
+                int leftInd = 2*i; //for 1 based indexing
                 int rightInd = 2*1+1;
 
                 if(leftInd<size && arr[i]<arr[leftInd]){
