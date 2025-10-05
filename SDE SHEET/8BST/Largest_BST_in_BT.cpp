@@ -12,15 +12,16 @@ class Solution {
 private:
     NodeValue largestBSTSubtreeHelper(TreeNode* root) {
         if (!root)
-            return NodeValue(INT_MAX, INT_MIN, 0);
+            return NodeValue(INT_MAX, INT_MIN, 0); //{minimal, maximal, size_of_BST}
 
         // Get values from left and right subtree
         auto left = largestBSTSubtreeHelper(root->left);
         auto right = largestBSTSubtreeHelper(root->right);
 
+        //Now Postorder traversal is done ab ye karo
         // Current node is greater than max in left and smaller than min in right
         if (left.maxNode < root->val && root->val < right.minNode) {
-            // It is a BST
+            // It is a Valid BST
             return NodeValue(
                 min(root->val, left.minNode),
                 max(root->val, right.maxNode),

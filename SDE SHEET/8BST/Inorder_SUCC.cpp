@@ -1,4 +1,4 @@
-//INORDER SUCCESSOR
+//INORDER SUCCESSOR : just larger node than the target
 class Solution
 {
 public:
@@ -10,15 +10,15 @@ public:
             if (p->val >= root->val)
                 root = root->right;
             else{
-                successor = root;
-                root = root->left;
+                successor = root; //potential succ
+                root = root->left; //for finding more closer one
             }
         }
         return successor;
     }
 };
 
-//INORDER PREDECESSOR
+//INORDER PREDECESSOR : just smaller node than the target
 
 class Solution {
 public:

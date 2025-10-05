@@ -10,7 +10,7 @@ public:
             return root;
         }
         TreeNode✶ left = lca(root->left, p, q);
-        B TreeNode *right = lca(root->right, p, q);
+        TreeNode *right = lca(root->right, p, q);
         
         // result
         if (left == NULL)

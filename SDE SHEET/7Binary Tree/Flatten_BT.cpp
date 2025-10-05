@@ -1,3 +1,9 @@
+
+/*
+step1 : pahle root ka inorder predecessore nikalo usse right subtree ko connect krdo
+step2 : fhir right pointer of root ko purani pos se todkr apn left subtree se connect kr denge.
+*/
+
 class Solution {
 public:
     void flatten(TreeNode* root) {

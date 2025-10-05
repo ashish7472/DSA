@@ -54,7 +54,7 @@ public:
         // If either left or right child
         // exists, update the current node's
         // value with the total sum.
-        if (root->left || root->right) {
+        if (root->left || root->right) { //qki agar leaf node hua to bina iske leaf = tot(where tot is 0)
             root->val = tot;
         }
     }

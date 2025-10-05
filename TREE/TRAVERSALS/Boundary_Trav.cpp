@@ -38,7 +38,7 @@ public:
         else
             traverseRight(root->left, ans);
             
-        //wapas aagye tb store karo
+        //wapas aagye tb store karo : coz we need to store in reverse order
         ans.push_back(root->data);
             
     }

@@ -59,7 +59,7 @@ public:
         // Read the root value
         // from the serialized data
         getline(s, str, ',');
-        TreeNode* root = new TreeNode(stoi(str));
+        TreeNode* root = new TreeNode(stoi(str)); //1st node to non-null hogi hi agar na hoti to wo uper hi null return kr deta
 
         // Use a queue for 
         // level-order traversal

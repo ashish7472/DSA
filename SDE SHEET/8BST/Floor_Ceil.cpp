@@ -1,4 +1,4 @@
-// FLOOR - LARGEST NODE <= KEY
+// FLOOR - LARGEST NODE <= KEY  -- like Predecessor
 
 int floor InBST(TreeNode << int > *root, int key)
 {
@@ -12,7 +12,7 @@ int floor InBST(TreeNode << int > *root, int key)
         }
         if (root->val < key)
         {
-            floor = root->val;
+            floor = root->val; //potential floor
             root = root->right;
         }
         else
@@ -23,7 +23,7 @@ int floor InBST(TreeNode << int > *root, int key)
     return floor;
 }
 
-// CEIL - LARGEST NODE >= KEY
+// CEIL - LARGEST NODE >= KEY   -- Like Successor
 
 int ceil InBST(TreeNode << int > *root, int key)
 {

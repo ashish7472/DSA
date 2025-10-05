@@ -1,16 +1,29 @@
-#include<bits/stdc++.h>
-using namespace std;
+class Solution{
+    bool getPath(TreeNode* root, vector<int>& arr, int B){
+        if(!root){
+            return false;
+        }
 
-int main()
-{
-    unordered_map<int,int> mp;
-    mp[5] = 4;
-    mp[4] = 5;
-    mp[9] = 1;
-    mp[1] = 3;
+        arr.push_back(root->val);
+        if(root->val==B){
+            return true;
+        }
 
-    for(auto it : mp){
-        cout<<it.first <<" -> "<<it.second<<endl;
+        if(getPath(root->left,arr,B) || getPath(root->right,arr,B)) 
+            return true;
+        
+        arr.pop_back();
+        return false;
     }
-    return 0;
+
+    vector<int> solve(TreeNode* A, int B) {
+        vector<int> arr;
+
+        if (A == NULL) {
+            return arr;
+        }
+        getPath(A, arr, B);
+        
+        return arr;
+    }
 }

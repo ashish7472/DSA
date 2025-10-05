@@ -4,6 +4,8 @@ class Solution
     //Function to find the vertical order traversal of Binary Tree.
     vector<int> verticalOrder(Node *root)
     {
+        //map is used instead of unordered_map coz we need to write nodes from left to right so we need to
+        //write in increasing order of hd and map stores in increasing order of hd here.
         map<int, map<int,vector<int> > > nodes;
         queue< pair<Node*, pair<int,int> > > q;
         vector<int> ans;

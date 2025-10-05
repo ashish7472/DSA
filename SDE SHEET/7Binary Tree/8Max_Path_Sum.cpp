@@ -1,7 +1,7 @@
 class Solution {
 public:
     // Recursive function to find the maximum path sum
-    // or a given subtree rooted at 'root'
+    // for a given subtree rooted at 'root'
     // The variable 'maxi' is a reference parameter
     // updated to store the maximum path sum encountered
     int findMaxPathSum(Node* root, int &maxi) {
@@ -13,7 +13,7 @@ public:
         // Calculate the maximum path sum
         // for the left and right subtrees
         int leftMaxPath = max(0, findMaxPathSum(root->left, maxi)); //0 is ki if pathsum is -ve return 0 instead
-        int rightMaxPath = max(0, findMaxPathSum(root->right, maxi));
+        int rightMaxPath = max(0, findMaxPathSum(root->right, maxi))
 
         // Update the overall maximum
         // path sum including the current node(curving node)

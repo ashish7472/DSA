@@ -24,6 +24,7 @@ class Solution
             int hd = temp.second;
             
             //if one value is present for a HD, then do nothing
+            //qki hr hd ke liye ek hi value present honi chaiye qki aur values iske baad hide ho jayegi
             if(topNode.find(hd) == topNode.end())
                 topNode[hd] = frontNode -> data;
                 
@@ -64,7 +65,7 @@ class Solution {
             Node* frontNode = temp.first;
             int hd = temp.second;
             
-            topNode[hd] = frontNode -> data;
+            topNode[hd] = frontNode -> data; //wo apne aap hi replace hote jayega 
                 
             if(frontNode->left)
                 q.push(make_pair(frontNode->left, hd-1));
