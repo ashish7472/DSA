@@ -1,32 +1,28 @@
-include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-string result(string s)
-{
-    int left = 0;
-    int right = s.length()-1;
-    
-    string temp="";
-    string ans="";
-    
-    //Iterate the string and keep on adding to form a word
-    //If empty space is encountered then add the current word to the result
-    while (left <= right) {
-        char ch= s[left];
-        if (ch != ' ') {
-            temp += ch;
-        } else if (ch == ' ') {
-            if (ans!="") ans = temp + " " + ans;
-            else ans = temp;
-            temp = ""; //clear temp again
-        }
-        left++;
+
+string reverseWords(string s) {
+    stringstream ss(s);
+    string word;
+    vector<string> words;
+
+    // Extract words from stringstream
+    while (ss >> word) {
+        words.push_back(word);
     }
-    
-    //If not empty string then add to the result(Last word is added)
-    if (temp!="") {
-        if (ans!="") ans = temp + " " + ans;
-        else ans = temp;
+
+    // Build reversed string
+    string result;
+    for (int i = words.size() - 1; i >= 0; i--) {
+        result += words[i];
+        if (i > 0) result += " "; // add space between words
     }
-    
-    return ans;    
+    return result;
 }
+
+int main() {
+    string s = "Hello world this is C++";
+    cout << reverseWords(s) << endl; // Output: "C++ is this world Hello"
+}
+
+//we can also use stringstream + stack too

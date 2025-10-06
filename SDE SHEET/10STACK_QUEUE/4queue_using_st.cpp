@@ -19,7 +19,7 @@ public:
         return p;
     }
     
-    int peek() {
+    int peek() {  //return queue.front()
         if (st2.empty()) {
             while (!st1.empty()) {
                 st2.push(st1.top());

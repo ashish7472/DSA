@@ -44,9 +44,9 @@ int main()
 
 // FOR DEQUEUE OPERATION-->
 
-// if(f==-1 && r==-1)
-//     cout<<"underflow";
-// else if(f==r)
-//     f = r = -1;
-// else
-//     f++;
+if(f==-1 && r==-1)
+    cout<<"underflow";
+else if(f==r)
+    f = r = -1;
+else
+    f++;

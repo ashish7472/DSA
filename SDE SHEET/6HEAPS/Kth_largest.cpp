@@ -1,5 +1,7 @@
 //Approach-3 (Using QuickSelect Algorithm
 //Time complexity: O(n) on average, O(n2) in the worst case (See video above for explanation)
+
+//Hoare's Partition -- 2 pointer
 class Solution {
 public:
     
@@ -57,3 +59,45 @@ public:
         
     }
 };
+
+//Easy -- but both will give same o/p
+//More simple -- Lomuto's Partition -- single pointer
+#include <bits/stdc++.h>
+using namespace std;
+
+int partition(vector<int>& nums, int left, int right) {
+    int pivot = nums[right];
+    int i = left;
+
+    for (int j = left; j < right; j++) {
+        if (nums[j] > pivot) {  // For kth largest (descending)
+            swap(nums[i], nums[j]);
+            i++;
+        }
+    }
+    swap(nums[i], nums[right]);
+    return i;
+}
+
+int findKthLargest(vector<int>& nums, int k) {
+    int left = 0, right = nums.size() - 1;
+
+    while (true) {
+        int pivotIndex = partition(nums, left, right);
+
+        if (pivotIndex == k - 1)
+            return nums[pivotIndex];
+        else if (pivotIndex > k - 1)
+            right = pivotIndex - 1;
+        else
+            left = pivotIndex + 1;
+    }
+}
+
+int main() {
+    vector<int> nums = {3, 2, 1, 5, 6, 4};
+    int k = 2;
+
+    cout << k << "nd largest element is: " << findKthLargest(nums, k) << endl;
+    return 0;
+}
