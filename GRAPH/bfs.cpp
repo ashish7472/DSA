@@ -24,7 +24,7 @@ vector<int> &ans, int node)
 
 main(){
     //if it is the case of the multiple components then we have to call this above bfs function inside the for loop in main to make sure that our code run for all components of the graph.
-    //if multiple components are not there then we can write this code directily inside the main without using any parent for loop for the dfs logic
+    //if multiple components are not there then we can write this code directily inside the main without using any parent for-loop for the bfs logic
     
     // int nodes;
     // if(int i=0;i<nodes;i++){

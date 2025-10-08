@@ -48,7 +48,7 @@ class Solution {
 int main() {
     
     // V = 4, E = 2
-    vector<int> adj[4] = {{}, {2}, {1, 3}, {2}};
+    vector<int> adj[4] = {{}, {2}, {1, 3}, {2}}; //valid and used to create adj list
     Solution obj;
     bool ans = obj.isCycle(4, adj);
     if (ans)

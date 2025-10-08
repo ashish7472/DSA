@@ -14,6 +14,7 @@ class Solution {
          else if (m1.pos < m2.pos) return true;  //agar finish time same h to pos ko consider krlo
          return false;
       }
+      
    void maxMeetings(int s[], int e[], int n) {
       struct meeting meet[n];
       for (int i = 0; i < n; i++) {

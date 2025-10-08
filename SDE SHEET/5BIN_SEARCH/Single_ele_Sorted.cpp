@@ -13,7 +13,7 @@ int singleNonDuplicate(vector<int>& arr) {
     while (low <= high) {
         int mid = (low + high) / 2;
 
-        //if arr[mid] is the single element:
+        //if arr[mid] is the single element: we found it
         if (arr[mid] != arr[mid + 1] && arr[mid] != arr[mid - 1]) {
             return arr[mid];
         }

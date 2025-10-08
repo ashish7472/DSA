@@ -9,7 +9,7 @@ int lse(vector<int>& arr){
     sort(arr.begin(),arr.end());
 
     int longest = 1, cnt = 1;
-    for(int i=1;i<n;i++){
+    for(int i=1;i<n;i++){ 
         if(arr[i]==arr[i-1]) continue; //skip duplicates
         if(arr[i] == arr[i-1]+1){
             cnt++;

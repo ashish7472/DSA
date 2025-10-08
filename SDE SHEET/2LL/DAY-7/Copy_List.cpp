@@ -41,7 +41,7 @@ void insertCopyInBetween(Node* head){
         Node* copy = new Node(temp->data);  
         
         // Point the copy's next to the original node's next
-        copy->next = nextElement;  
+        copy->next = temp->next;  
         
         // Point the original node's next to the copy
         temp->next = copy;         

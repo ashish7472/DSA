@@ -59,7 +59,7 @@ int main() {
     int n = 5; // number of nodes
     int m = 6; // number of edges
     vector<pair<pair<int, int>, int>> g = {
-        {{1, 2}, 2},
+        {{1, 2}, 2},  //{{u,v},wt}
         {{1, 3}, 4},
         {{2, 3}, 1},
         {{2, 4}, 7},
