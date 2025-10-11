@@ -52,7 +52,7 @@ int main() {
     vector<pair<int, int>> edges = {
         {1, 2}, {2, 3}, {3, 5}, {5, 6}, {1, 4}, {4, 6}, {2, 4}
     };
-    int s = 1, t = 6;
+    int s = 1, t = 6; //src and target node
 
     vector<int> path = shortestPath(edges, n, m, s, t);
     cout << "Shortest path from " << s << " to " << t << " is: ";

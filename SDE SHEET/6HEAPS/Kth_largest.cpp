@@ -7,7 +7,7 @@ public:
     
     int partition_algo(vector<int>& nums, int L, int R) {
         
-        int P = nums[L];
+        int P = nums[L]; //pivot
         int i = L+1; //L se start krne se agar array me 1 hi element hua then it will suck
         int j = R;
         
