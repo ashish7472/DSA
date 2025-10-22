@@ -1,21 +1,4 @@
-// 1. Optimal 1
-
-// pair<int,int> search(vector<vector<int>>& mat, int n, int m, int target){
-//     int rowN = 0;
-//     for(int i=0;i<n;i++){
-//         if(mat[i][0] <= target) rowN++;
-//         else break;
-//     }
-//     rowN--;
-
-//     for(int i=0;i<m;i++){
-//         if(mat[rowN][i]==target) return {i,rowN};
-//     }
-
-//     return {-1,-1};
-// }
-
-// 2. Optimal 2
+//Optimal 1
 
 bool binarySearch(vector<int>& nums, int target) {
     int n = nums.size(); //size of the array
@@ -43,7 +26,7 @@ bool searchMatrix(vector<vector<int>>& matrix, int target) {
     return false;
 }
 
-// 3 Optimal 3 ------ Most Optimal Approach
+//Optimal 2 ------ Most Optimal Approach
 
 bool searchMatrix(vector<vector<int>>& matrix, int target) {
     int n = matrix.size();

@@ -1,21 +1,36 @@
-#include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
 
-bool binary(vector<int>& arr, int s, int e, int n, int key){
-    if(s>e) return false;
+class Node{
+    public:
+        int val;
+        Node* next;
 
-    int m = (s+e)/2;
-    if(arr[m]==key) return true;
+        Node(){val = 0, next = NULL;}
+        Node(int val){this->val = val, next = NULL;}
+};
 
-    return binary(arr,s,m-1,n,key) || binary(arr,m+1,e,n,key);
+Node* make_ll(Node*& head){
+    int val;
+    cout<<"Enter val: ";
+    cin>>val;
+    if(val == -1) return NULL;
+    head = new Node(val);
+
+    head->next = make_ll(head->next);
+
+    return head;
 }
 
 int main()
 {
-    vector<int>arr = {1,2,3,4,3,2,1,0};
-    int n = arr.size();
-    int s = 0, e = n-1;
-    int key = 10;
-    cout<<binary(arr,s,e,n,key);
-    return 0;
+    Node* head = NULL;
+
+    head = make_ll(head);
+
+    Node* temp = head;
+    while(temp){
+        cout<<temp->val<<"->";
+        temp = temp->next;
+    }
 }

@@ -64,8 +64,6 @@ public:
         //traverse right part
         traverseRight(root->right, ans);
         
-        return ans;
-        
-        
+        return ans;  
     }
 };
