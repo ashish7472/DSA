@@ -9,7 +9,7 @@ vector<int> &ans, int node)
         int frontNode = q.front();
         q.pop();
         // store frontNode into ans
-        ans.push_back.(frontNode);
+        ans.push_back(frontNode);
         // traverse all neighbours of frontNode
         for (auto i : adjList[frontNode])
         {

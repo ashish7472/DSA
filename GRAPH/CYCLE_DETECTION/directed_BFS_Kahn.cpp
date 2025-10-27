@@ -17,7 +17,8 @@ void kahn(int n, vector<int>& topo) {
         q.pop();
         topo.push_back(u);
         for (auto v : adj[u]) {
-            if (--indegree[v] == 0)
+            indegree[v]--;
+            if (indegree[v] == 0)
                 q.push(v);
         }
     }

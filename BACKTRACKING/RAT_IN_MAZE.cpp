@@ -14,25 +14,23 @@ class Solution {
             ans.push_back(path);
             return;
         }
+
+        vis[x][y] = 1;
         
         //Down
         if(isSafe(x+1,y,vis,mat,n)){
-            vis[x][y] = 1;
             solve(x+1,y,mat,n,ans,vis,path+'D');
         }
         //Left
         if(isSafe(x,y-1,vis,mat,n)){
-            vis[x][y] = 1;
             solve(x,y-1,mat,n,ans,vis,path+'L');
         }
         //Right
         if(isSafe(x,y+1,vis,mat,n)){
-            vis[x][y] = 1;
             solve(x,y+1,mat,n,ans,vis,path+'R');
         }
         //Up
         if(isSafe(x-1,y,vis,mat,n)){
-            vis[x][y] = 1;
             solve(x-1,y,mat,n,ans,vis,path+'U');
         }
         
